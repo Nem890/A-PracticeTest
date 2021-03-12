@@ -27,4 +27,7 @@ while 1:
         print("Incorrect")
         print("You have", attempts, "attempts left")
     if len(attempts) == 0:
+        help = input("Would you like the answer? ")
+    if help == str("Yes"):
+        print("The answer is 21.. FTP or File Transfer Protocol connects over port 21")
         exit(0)
