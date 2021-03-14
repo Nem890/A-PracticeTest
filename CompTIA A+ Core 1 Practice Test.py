@@ -1,33 +1,62 @@
-# Michael Alestock
+# Created by Michael Alestock
+# elmatic @ GitHub
+# https://github.com/elmatic
+
+# Import Random Module
+import random
+
+# Declare the instructions
 
 
-# Display Instructions to the Student
 def show_instructions():
     print("Welcome to n3tbi0s' CompTIA A+ Core 1 Practice Test\n")
-    print("You have 90 minutes to finish the test\n")
     print("Good luck!!\n")
 
 
-show_instructions()  # Calling the function
+show_instructions()  # Display the instructions
 
-# Declare Test Questions & Answers
 
-question1 = ["110", "143", "443", "21"]
-attempts = list(range(2))
+# Game Loop
+while True:
 
-while 1:
-    print("What port does FTP use?\n110\n143\n443\n21 ")
-    answer = input("Answer: ")
-    if answer == "21":
-        answer = answer[0]
-        print("Correct!")
-        exit(0)
+    # Quiz Questions
+    test_data = [
+        {
+            "question": "The printer in the accounting department has stopped all printing processes. The print queue "
+                        "shows that there are seven jobs in the queue that are waiting to be printed. Which of the "
+                        "following would be the BEST next troubleshooting step?",
+            "choices": {"a": "Send a test job to the printer and move it to the top of the queue",
+                        "b": "Restart the printer's spooler",
+                        "c": "Install an updated version of the printer driver",
+                        "d": "Delete everything in the queue and resend the print jobs"},
+            "answer": "b"
+        },
+        {
+            "question": "What port does DHCP Server use?",
+            "choices": {"a": "21", "b": "143", "c": "67", "d": "110"},
+            "answer": "c"
+        },
+        {
+            "question": "What port does IMAP4 use?",
+            "choices": {"a": "21", "b": "143", "c": "67", "d": "110"},
+            "answer": "b"
+        },
+        {
+            "question": "What port does POP3 use?",
+            "choices": {"a": "21", "b": "143", "c": "67", "d": "110"},
+            "answer": "d"
+        },
+
+    ]
+
+    # Random Choice Selection
+    q = random.choice(test_data)
+
+    # Practice Test Syntax
+    print(q.get("question"))
+    answer = input(q.get("choices")).lower()
+
+    if answer == q.get("answer"):
+        print("Correct")
     else:
-        attempts.pop(0)
-        print("Incorrect")
-        print("You have", attempts, "attempts left")
-    if len(attempts) == 0:
-        help = input("Would you like the answer? ")
-    if help == str("Yes"):
-        print("The answer is 21.. FTP or File Transfer Protocol connects over port 21")
-        exit(0)
+        print("Wrong")
